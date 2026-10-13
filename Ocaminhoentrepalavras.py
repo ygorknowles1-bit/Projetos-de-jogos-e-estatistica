@@ -1,6 +1,3 @@
-###############################################################################
-# Funções que devem ser implementadas sem alteracao de assinatura
-###############################################################################
 def obtemPalavrasProximas(palavra, vocabulario):
     palavras_proximas = []
     for i in range(len(palavra)):
