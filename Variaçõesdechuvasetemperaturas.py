@@ -133,9 +133,7 @@ def filtro_de_intervalo(tabela, j, v1, v2):
     ]
  
  
-# ---------------------------------------------------------------------
-# Auxiliares de impressão / entrada
-# ---------------------------------------------------------------------
+
 def imprime_tabela(tabela):
     cabecalhos = ["Data", "Prec", "Temp", "Umid", "Vento", "TempApar"]
     print(f"{cabecalhos[0]:<12}" + "".join(f"{c:>10}" for c in cabecalhos[1:]))
