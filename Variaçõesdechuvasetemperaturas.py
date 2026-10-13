@@ -25,9 +25,6 @@ MEDIDAS = {
  
 
 def le_dados(nome_arquivo):
-    """Lê o arquivo texto e devolve uma matriz (lista de listas) com as
-    colunas Data, Prec, Temp, Umid, Vento. Entradas indisponíveis viram
-    None."""
     tabela = []
     with open(nome_arquivo, "r", encoding="utf-8") as arquivo:
         for linha in arquivo:
@@ -50,8 +47,6 @@ def le_dados(nome_arquivo):
  
 
 def temperatura_aparente(tabela):
-    """Acrescenta a cada linha da tabela a temperatura aparente,
-    calculada a partir de temperatura, umidade e velocidade do vento."""
     for linha in tabela:
         temp = linha[COL_TEMP]
         umid = linha[COL_UMID]
@@ -65,8 +60,6 @@ def temperatura_aparente(tabela):
  
  
 def acrescenta_colunas_para_filtragem(tabela):
-    """Acrescenta a cada linha da tabela o mês, o ano e o valor aaaamm
-    (AEM) extraídos da data, no formato dd/mm/aaaa."""
     for linha in tabela:
         dia, mes, ano = linha[COL_DATA].split("/")
         mes = int(mes)
@@ -82,8 +75,6 @@ def acrescenta_colunas_para_filtragem(tabela):
  
 
 def imprime_estatisticas(titulo, coluna_de_referencia, abscissas, medias, desvios):
-    """Imprime a tabela de médias e desvios de 'titulo', usando
-    'abscissas' (inteiros ou strings) como referência de cada linha."""
     cabecalho = "Ano" if coluna_de_referencia == "ANO" else "Mês"
     print(f"\nEstatísticas sobre {titulo}")
     print(f"{cabecalho:<8}média (desvio)")
@@ -94,9 +85,6 @@ def imprime_estatisticas(titulo, coluna_de_referencia, abscissas, medias, desvio
  
  
 def medias_e_desvios_de_medida(tabela, medida, coluna_de_referencia):
-    """Calcula, para cada valor distinto de coluna_de_referencia, a
-    média e o desvio padrão da coluna 'medida'. Devolve três listas:
-    os valores da coluna_de_referencia, as médias e os desvios."""
     valores_ref = sorted({linha[coluna_de_referencia] for linha in tabela})
  
     medias = []
@@ -125,8 +113,6 @@ def medias_e_desvios_de_medida(tabela, medida, coluna_de_referencia):
  
  
 def filtro_de_intervalo(tabela, j, v1, v2):
-    """Devolve a subtabela com as linhas cujo valor na coluna j está
-    entre v1 e v2 (inclusive)."""
     return [
         linha for linha in tabela
         if linha[j] is not None and v1 <= linha[j] <= v2
