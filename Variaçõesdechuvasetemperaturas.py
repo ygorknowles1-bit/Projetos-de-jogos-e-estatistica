@@ -23,9 +23,7 @@ MEDIDAS = {
 }
  
  
-# ---------------------------------------------------------------------
-# Leitura dos dados
-# ---------------------------------------------------------------------
+
 def le_dados(nome_arquivo):
     """Lê o arquivo texto e devolve uma matriz (lista de listas) com as
     colunas Data, Prec, Temp, Umid, Vento. Entradas indisponíveis viram
@@ -50,9 +48,7 @@ def le_dados(nome_arquivo):
     return tabela
  
  
-# ---------------------------------------------------------------------
-# Passo 1
-# ---------------------------------------------------------------------
+
 def temperatura_aparente(tabela):
     """Acrescenta a cada linha da tabela a temperatura aparente,
     calculada a partir de temperatura, umidade e velocidade do vento."""
@@ -84,9 +80,7 @@ def acrescenta_colunas_para_filtragem(tabela):
         imprime_tabela(tabela)
  
  
-# ---------------------------------------------------------------------
-# Passo 2
-# ---------------------------------------------------------------------
+
 def imprime_estatisticas(titulo, coluna_de_referencia, abscissas, medias, desvios):
     """Imprime a tabela de médias e desvios de 'titulo', usando
     'abscissas' (inteiros ou strings) como referência de cada linha."""
@@ -130,9 +124,6 @@ def medias_e_desvios_de_medida(tabela, medida, coluna_de_referencia):
     return valores_ref, medias, desvios
  
  
-# ---------------------------------------------------------------------
-# Passo 3
-# ---------------------------------------------------------------------
 def filtro_de_intervalo(tabela, j, v1, v2):
     """Devolve a subtabela com as linhas cujo valor na coluna j está
     entre v1 e v2 (inclusive)."""
@@ -193,9 +184,7 @@ def formata_aem(valor):
     return f"{mes}/{ano % 100:02d}"
  
  
-# ---------------------------------------------------------------------
-# Programa principal
-# ---------------------------------------------------------------------
+
 def main():
     nome_arquivo = input("Digite o nome do arquivo de dados: ")
     tabela = le_dados(nome_arquivo)
