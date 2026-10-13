@@ -2,17 +2,6 @@
 # Funções que devem ser implementadas sem alteracao de assinatura
 ###############################################################################
 def obtemPalavrasProximas(palavra, vocabulario):
-    """ Devolve uma lista de palavras que diferem da palavra do parâmetro 
-    em apenas uma letra.
-    Na lista, primeiro devem aparecer as palavras que diferem na primeira
-    letra, depois as que diferem na segunda letra, e assim por diante.
-    As palavras da lista devolvida devem existir no vocabulário passado 
-    como parâmetro para a função.
-    
-    Parâmetros:
-    palavra -- a palavra da qual se deseja encontrar as palavras próximas
-    vocabulario -- lista das palavras do vocabulario
-    """    
     palavras_proximas = []
     for i in range(len(palavra)):
         for c in "abcdefghijklmnopqrstuvwxyz":
@@ -23,17 +12,6 @@ def obtemPalavrasProximas(palavra, vocabulario):
 
 
 def criaArvoreDeBusca(inicio, fim, vocabulario):
-    """ Devolve uma lista com os nós da árvore de busca de caminho entre as
-    palavras inicio e fim. Cada nó é uma lista contendo uma palavra e a 
-    posição do seu nó pai. Portanto, a função devolve uma lista de listas.
-    Os nós possuem apenas palavras existentes na lista de vocabulário passada 
-    no parâmetro.
-    
-    Parâmetros:
-    inicio -- palavra de início do caminho a ser buscado
-    fim -- palavra de fim do caminho a ser buscado
-    vocabulario -- lista das palavras do vocabulário
-    """
     inicioFila = 0
 
     fila = [[inicio, -1]]
@@ -56,16 +34,6 @@ def criaArvoreDeBusca(inicio, fim, vocabulario):
     
 
 def obtemCaminho(inicio, fim, vocabulario):
-    """Devolve uma lista com as palavras do caminho entre as palavras inicio
-    e fim. O caminho contém apenas palavras existentes na lista de vocabulário
-    passada no parâmetro e inclui as palavras de inicio e fim.
-    Caso não haja caminho entre inicio e fim, a função devolve uma lista vazia.
-        
-    Parâmetros:
-    inicio -- palavra de início do caminho a ser buscado
-    fim -- palavra de fim do caminho a ser buscado
-    vocabulario -- lista das palavras do vocabulário
-    """        
     arvore = criaArvoreDeBusca(inicio, fim, vocabulario)
     
     if arvore[-1][0] != fim:
